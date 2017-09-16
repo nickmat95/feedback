@@ -1,4 +1,5 @@
 const path = require('path');
+//const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
 	entry: "./src/index.js",
@@ -29,7 +30,22 @@ module.exports = {
 		          		presets: ['env', 'react']
 		        	}
 		    	}
-		    }
+		    },
+		    /*{
+		        test: /\.css$/,
+		        use: ExtractTextPlugin.extract({
+		        	fallback: "style-loader",
+		        	use: "css-loader"
+		        })
+		    }*/
 		]
-	}
+	},
+
+	/*plugins: [
+	    new ExtractTextPlugin({
+	    	filename: '[name].bundle.css',
+	    	disable: false,
+			allChunks: true
+	    }),
+	]*/
 }
