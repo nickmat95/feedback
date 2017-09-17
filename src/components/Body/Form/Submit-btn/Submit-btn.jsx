@@ -11,7 +11,30 @@ class SubmitBtn extends React.Component {
 	}
 
 	addComment() {
-		
+
+		let storageComments = JSON.parse(localStorage.getItem("comments"));
+
+		let currentDate = new Date();
+
+		let commentsList = [];
+
+		let comment = {
+			name: this.props.name,
+			phone: this.props.phone,
+			date: currentDate,
+			message: this.props.message
+		};
+
+		if (storageComments === null) {
+			commentsList = [comment];
+		} else {
+			storageComments.push(comment);
+			commentsList = storageComments;
+		}
+
+		let serialComments = JSON.stringify(commentsList); 
+
+		localStorage.setItem("comments", serialComments);
 	}
 
 	render() {
