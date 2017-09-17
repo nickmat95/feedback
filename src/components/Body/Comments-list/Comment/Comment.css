@@ -1,1 +1,17 @@
-Comment.css
+.comment {
+	width: 100%;
+	margin: 20px 0 0;
+	padding: 20px;
+	border: 1px solid #696969;
+}
+
+.commentItem {
+	margin: 3px 0 3px 0;
+}
+
+.comment textarea {
+	width: 60%;
+	height: 70px;
+	color: black;
+	resize: none;
+}

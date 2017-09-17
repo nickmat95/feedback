@@ -1,1 +1,9 @@
-Footer.css
+.container {
+	width: 60%;
+	margin: 0 auto;
+}
+
+.footer {
+	background: grey;
+	height: 50px;
+}

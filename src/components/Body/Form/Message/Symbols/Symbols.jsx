@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import './Symbols.css';
 
 class Symbols extends React.Component {
 

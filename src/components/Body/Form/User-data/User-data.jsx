@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Field from './Field/Field.jsx';
+import './User-data.css';
 
 class UserData extends React.Component {
 	render() {

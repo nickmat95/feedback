@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import UserData from './User-data/User-data.jsx';
 import Message from './Message/Message.jsx';
 import SubmitBtn from './Submit-btn/Submit-btn.jsx';
+import './Form.css';
 
 class Form extends React.Component {
 	render() {

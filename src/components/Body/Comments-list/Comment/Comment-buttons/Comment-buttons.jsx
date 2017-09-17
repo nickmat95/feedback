@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import CommentButton from './Comment-button/Comment-button.jsx';
+import './Comment-buttons.css';
 
 class CommentButtons extends React.Component {
 	render() {
