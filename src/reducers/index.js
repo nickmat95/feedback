@@ -1,7 +1,11 @@
 import { combineReducers } from 'redux';
 
-import changeSymbolsAmount from './change-symbols-amount.js';
+import getName from './get-name.js';
+import getPhone from './get-phone.js';
+import getMessage from './get-message.js';
 
 export default combineReducers({
-	changeSymbolsAmount
+	getName,
+	getPhone,
+	getMessage
 });

@@ -21,7 +21,7 @@ class Message extends React.Component {
 			commentValue: value
 		});
 
-		this.props.changeSymbolsAmount(value.length);
+		this.props.getMessage(value);
 	}
 
 	render() {
@@ -40,6 +40,6 @@ export default connect(
 
 	}),
 	dispatch => ({
-		changeSymbolsAmount: (item) => dispatch({ type: 'CHANGE', payload: item })
+		getMessage: (item) => dispatch({ type: 'GET_MESSAGE', payload: item }),
 	})
 )(Message);

@@ -10,7 +10,7 @@ class Symbols extends React.Component {
 	}
 
 	getEnableAmount() {
-		return (256 - Number(this.props.amount));
+		return (256 - (this.props.message).length);
 	}
 
 	render() {
@@ -24,7 +24,7 @@ class Symbols extends React.Component {
 
 export default connect(
 	state => ({
-		amount: state.changeSymbolsAmount
+		message: state.getMessage
 	}),
 	dispatch => ({
 
