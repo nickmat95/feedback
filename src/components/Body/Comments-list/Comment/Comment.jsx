@@ -10,7 +10,7 @@ class Comment extends React.Component {
 	    		<p className="commentItem">name: ...</p>
 	    		<p className="commentItem">phone: ...</p>
 	    		<p className="commentItem">comment: </p>
-	    		<textarea disabled="disabled">comment text</textarea>
+	    		<textarea value="comment text.." disabled="disabled" />
 	    		<CommentButtons />
 	    	</div>
 	    );

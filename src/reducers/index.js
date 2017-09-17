@@ -1,16 +1,7 @@
 import { combineReducers } from 'redux';
 
-let testReducer = (state = [], action) => {
-	switch(action.type) {
-  	case 'FOO':
-  		return [
-	  		'foo',
-	  		];
-  		break;
-  }
-  return state;
-}
+import changeSymbolsAmount from './change-symbols-amount.js';
 
 export default combineReducers({
-	testReducer
+	changeSymbolsAmount
 });
