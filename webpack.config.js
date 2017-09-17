@@ -1,8 +1,15 @@
+const webpack = require('webpack');
 const path = require('path');
-//const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
 	entry: "./src/index.js",
+	watch: true,
+
+	devServer: {
+		hot: true,
+		contentBase: "./build"
+	},
 
 	output: {
 		path: path.resolve(__dirname, "build"),
@@ -31,21 +38,18 @@ module.exports = {
 		        	}
 		    	}
 		    },
-		    /*{
+		    {
 		        test: /\.css$/,
-		        use: ExtractTextPlugin.extract({
-		        	fallback: "style-loader",
-		        	use: "css-loader"
-		        })
-		    }*/
+				use: [
+					{ loader: "style-loader" },
+	          		{ loader: "css-loader" }
+          		],
+				
+		    }
 		]
 	},
 
-	/*plugins: [
-	    new ExtractTextPlugin({
-	    	filename: '[name].bundle.css',
-	    	disable: false,
-			allChunks: true
-	    }),
-	]*/
+	plugins: [
+		new HtmlWebpackPlugin({template: "index.html"}),
+	]
 }
