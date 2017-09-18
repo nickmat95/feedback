@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import CommentButtons from './Comment-buttons/Comment-buttons.jsx'
+import DeleteButton from './Delete-button/Delete-button.jsx';
+import EditButton from './Edit-button/Edit-button.jsx';
+import CommentText from './Comment-text/Comment-text.jsx';
 import './Comment.css';
 
 class Comment extends React.Component {
@@ -8,7 +10,12 @@ class Comment extends React.Component {
 	constructor(props) {
 	    super(props);
 
+	    this.state = {
+	    	editButtonState: 'edit'
+	    };
+
 	    this.displayedDate = this.displayedDate.bind(this);
+	    this.getEditButtonState = this.getEditButtonState.bind(this);
 	}
 
 	displayedDate() {
@@ -21,15 +28,26 @@ class Comment extends React.Component {
 		return displayedDate;
 	}
 
+	getEditButtonState(state) {
+		this.setState({
+			editButtonState: state
+		});
+	}
+
 	render() {
 	    return (
 	    	<div className="comment">
+	    		<DeleteButton commentId={this.props.id} />
 	    		<p className="commentItem">date: {this.displayedDate()}</p>
 	    		<p className="commentItem">name: {this.props.name}</p>
 	    		<p className="commentItem">phone: {this.props.phone}</p>
 	    		<p className="commentItem">comment: </p>
-	    		<textarea value={this.props.message} disabled="disabled" />
-	    		<CommentButtons commentId={this.props.id} />
+	    		<CommentText
+	    		editButtonState={this.state.editButtonState}
+	    		commentId={this.props.id}
+	    		value={this.props.message}
+	    		/>
+	    		<EditButton getEditButtonState={this.getEditButtonState} commentId={this.props.id} />
 	    	</div>
 	    );
 	}

@@ -1,27 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import './Comment-button.jsx';
+import './Delete-button.css';
 
-class CommentButton extends React.Component {
+class DeleteButton extends React.Component {
 
 	constructor(props) {
 	    super(props);
 
-	    this.buttonAction = this.buttonAction.bind(this);
-	    this.edditComment = this.edditComment.bind(this);
 	    this.deleteComment = this.deleteComment.bind(this);
-	}
-
-	buttonAction() {
-		if (this.props.type === 'edit') {
-			this.edditComment();
-		} else {
-			this.deleteComment();
-		}
-	}
-
-	edditComment() {
-		console.log('eddit');
 	}
 
 	deleteComment() {
@@ -36,10 +22,9 @@ class CommentButton extends React.Component {
 	}
 
 	render() {
-		let value = (this.props.type === 'edit') ? 'edit' : 'delete';
 	    return (
 	    	<div>
-	    		<button className="" type="button" onClick={this.buttonAction}>{value}</button>
+	    		<button className="deleteButton" type="button" onClick={this.deleteComment}>delete</button>
 	    	</div>
 	    );
 	}
@@ -52,4 +37,4 @@ export default connect(
 	dispatch => ({
 		getCommentsList: (item) => dispatch({ type: 'GET_COMMENTS', payload: item }),
 	})
-)(CommentButton);
+)(DeleteButton);

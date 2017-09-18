@@ -1,0 +1,6 @@
+.comment textarea {
+	width: 60%;
+	height: 70px;
+	color: black;
+	resize: none;
+}
