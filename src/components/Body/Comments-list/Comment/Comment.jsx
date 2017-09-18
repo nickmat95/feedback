@@ -7,11 +7,11 @@ class Comment extends React.Component {
 	render() {
 	    return (
 	    	<div className="comment">
-	    		<p className="commentItem">date: ...</p>
-	    		<p className="commentItem">name: ...</p>
-	    		<p className="commentItem">phone: ...</p>
+	    		<p className="commentItem">date: {this.props.date}</p>
+	    		<p className="commentItem">name: {this.props.name}</p>
+	    		<p className="commentItem">phone: {this.props.phone}</p>
 	    		<p className="commentItem">comment: </p>
-	    		<textarea value="comment text.." disabled="disabled" />
+	    		<textarea value={this.props.message} disabled="disabled" />
 	    		<CommentButtons />
 	    	</div>
 	    );

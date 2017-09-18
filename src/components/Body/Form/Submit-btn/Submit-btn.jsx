@@ -19,6 +19,7 @@ class SubmitBtn extends React.Component {
 		let commentsList = [];
 
 		let comment = {
+			id: '',
 			name: this.props.name,
 			phone: this.props.phone,
 			date: currentDate,
@@ -26,8 +27,14 @@ class SubmitBtn extends React.Component {
 		};
 
 		if (storageComments === null) {
+			comment.id = 0;
 			commentsList = [comment];
 		} else {
+			let lastElement = storageComments.length - 1;
+			let lastId = storageComments[lastElement].id;
+			let newId = Number(lastId) + 1;
+
+			comment.id = newId;
 			storageComments.push(comment);
 			commentsList = storageComments;
 		}
@@ -35,9 +42,12 @@ class SubmitBtn extends React.Component {
 		let serialComments = JSON.stringify(commentsList); 
 
 		localStorage.setItem("comments", serialComments);
+
+		this.props.getCommentsList(JSON.parse(localStorage.getItem("comments")));
 	}
 
 	render() {
+		//localStorage.removeItem("comments");
 	    return (
 	    	<div>
 	    		<button className="submit" type="button" disabled={!this.props.name || !this.props.message} onClick={this.addComment}>submit</button>
@@ -53,6 +63,6 @@ export default connect(
 		message: state.getMessage
 	}),
 	dispatch => ({
-
+		getCommentsList: (item) => dispatch({ type: 'GET_COMMENTS', payload: item }),
 	})
 )(SubmitBtn);
