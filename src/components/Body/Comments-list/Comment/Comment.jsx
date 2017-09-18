@@ -12,7 +12,7 @@ class Comment extends React.Component {
 	    		<p className="commentItem">phone: {this.props.phone}</p>
 	    		<p className="commentItem">comment: </p>
 	    		<textarea value={this.props.message} disabled="disabled" />
-	    		<CommentButtons />
+	    		<CommentButtons commentId={this.props.id} />
 	    	</div>
 	    );
 	}

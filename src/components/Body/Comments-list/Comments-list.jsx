@@ -7,12 +7,13 @@ class CommentsList extends React.Component {
 
 	render() {
 
-		let storageComments = (!this.props.list[0]) ? JSON.parse(localStorage.getItem("comments")) : this.props.list;
+		let storageComments = (!this.props.list[0]) ? JSON.parse(localStorage.getItem('comments')) : this.props.list;
 
-		let commentsList = (storageComments === null) ? <p>No comments..</p> : storageComments.reverse().map(el => {
+		let commentsList = (storageComments === null || !storageComments[0]) ? <p>No comments..</p> : storageComments.reverse().map(el => {
 			return (
 	    		<Comment
 	    			key={el.id}
+	    			id={el.id}
 	        		name={el.name}
 	        		phone={el.phone}
 	        		date={el.date}

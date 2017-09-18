@@ -12,7 +12,7 @@ class SubmitBtn extends React.Component {
 
 	addComment() {
 
-		let storageComments = JSON.parse(localStorage.getItem("comments"));
+		let storageComments = JSON.parse(localStorage.getItem('comments'));
 
 		let currentDate = new Date();
 
@@ -26,7 +26,7 @@ class SubmitBtn extends React.Component {
 			message: this.props.message
 		};
 
-		if (storageComments === null) {
+		if (storageComments === null || !storageComments[0]) {
 			comment.id = 0;
 			commentsList = [comment];
 		} else {
@@ -41,13 +41,12 @@ class SubmitBtn extends React.Component {
 
 		let serialComments = JSON.stringify(commentsList); 
 
-		localStorage.setItem("comments", serialComments);
+		localStorage.setItem('comments', serialComments);
 
-		this.props.getCommentsList(JSON.parse(localStorage.getItem("comments")));
+		this.props.getCommentsList(JSON.parse(localStorage.getItem('comments')));
 	}
 
 	render() {
-		//localStorage.removeItem("comments");
 	    return (
 	    	<div>
 	    		<button className="submit" type="button" disabled={!this.props.name || !this.props.message} onClick={this.addComment}>submit</button>
