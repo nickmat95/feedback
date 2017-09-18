@@ -15,6 +15,7 @@ class SubmitBtn extends React.Component {
 		let storageComments = JSON.parse(localStorage.getItem('comments'));
 
 		let currentDate = new Date();
+		//let currentDate = date.toLocaleString();
 
 		let commentsList = [];
 
