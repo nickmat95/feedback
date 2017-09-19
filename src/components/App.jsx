@@ -1,15 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Header from './Header/Header.jsx';
-import Body from './Body/Body.jsx';
 import Footer from './Footer/Footer.jsx';
+import Menu from './Menu/Menu.jsx';
 
 class App extends React.Component {
 	render() {
 	    return (
 	    	<div>
 	    		<Header />
-	        	<Body />
+	    		<Menu />
+	        	{this.props.children}
 	        	<Footer />
 	    	</div>
 	    );

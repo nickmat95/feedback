@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import './Field.css';
 
 class Field extends React.Component {
-
+	
 	constructor(props) {
 	    super(props);
 
