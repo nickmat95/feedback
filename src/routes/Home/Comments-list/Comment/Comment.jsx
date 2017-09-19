@@ -43,11 +43,14 @@ class Comment extends React.Component {
 	    		<p className="commentItem">phone: {this.props.phone}</p>
 	    		<p className="commentItem">comment: </p>
 	    		<CommentText
-	    		editButtonState={this.state.editButtonState}
-	    		commentId={this.props.id}
-	    		value={this.props.message}
+	    			editButtonState={this.state.editButtonState}
+	    			commentId={this.props.id}
+	    			value={this.props.message}
 	    		/>
-	    		<EditButton getEditButtonState={this.getEditButtonState} commentId={this.props.id} />
+	    		<EditButton
+	    			getEditButtonState={this.getEditButtonState}
+	    			commentId={this.props.id}
+	    		/>
 	    	</div>
 	    );
 	}

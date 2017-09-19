@@ -25,19 +25,17 @@ class EditButton extends React.Component {
 		this.props.getEditButtonState(buttonType);
 
 		if (buttonType === 'edit') {
-			let storageComments = JSON.parse(localStorage.getItem("comments"));
+			let storageComments = JSON.parse(localStorage.getItem('comments'));
 
 			storageComments.forEach((item, i, arr) => {
-				if(item.id === Number(this.props.commentId)) {
+				if (item.id === Number(this.props.commentId)) {
 					item.message = this.props.comment
 				}
 			});
 
-			console.log('storage:', storageComments);
-
 			let serialComments = JSON.stringify(storageComments); 
-			localStorage.setItem("comments", serialComments);
-			this.props.getCommentsList(JSON.parse(localStorage.getItem("comments")));
+			localStorage.setItem('comments', serialComments);
+			this.props.getCommentsList(JSON.parse(localStorage.getItem('comments')));
 		}
 	}
 

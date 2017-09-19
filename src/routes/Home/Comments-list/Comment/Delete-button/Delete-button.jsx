@@ -11,14 +11,14 @@ class DeleteButton extends React.Component {
 	}
 
 	deleteComment() {
-		let storageComments = JSON.parse(localStorage.getItem("comments"));
+		let storageComments = JSON.parse(localStorage.getItem('comments'));
 		let newCommentsList = storageComments.filter((object) => object.id != this.props.commentId);
 
 		let serialComments = JSON.stringify(newCommentsList); 
 
-		localStorage.setItem("comments", serialComments);
+		localStorage.setItem('comments', serialComments);
 
-		this.props.getCommentsList(JSON.parse(localStorage.getItem("comments")));
+		this.props.getCommentsList(JSON.parse(localStorage.getItem('comments')));
 	}
 
 	render() {

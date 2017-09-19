@@ -13,7 +13,7 @@ class Field extends React.Component {
 	getFieldData(event) {
 		let value = event.target.value;
 
-		if(this.props.type === 'name') {
+		if (this.props.type === 'name') {
 			this.props.getName(value);
 		} else {
 			this.props.getPhone(value);

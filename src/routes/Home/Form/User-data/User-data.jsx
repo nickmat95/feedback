@@ -7,8 +7,14 @@ class UserData extends React.Component {
 	render() {
 	    return (
 	    	<div>
-	    		<Field key="1" type="name" />
-	        	<Field key="2" type="phone" />
+	    		<Field
+	    			key="1"
+	    			type="name"
+	    		/>
+	        	<Field
+	        		key="2"
+	        		type="phone"
+	        	/>
 	    	</div>
 	    );
 	}

@@ -44,6 +44,7 @@ class SubmitBtn extends React.Component {
 		localStorage.setItem('comments', serialComments);
 
 		this.props.getCommentsList(JSON.parse(localStorage.getItem('comments')));
+
 	}
 
 	render() {
