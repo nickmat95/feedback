@@ -22,7 +22,7 @@ class EditButton extends React.Component {
 			type: buttonType
 		});
 
-		this.props.getEditButtonState(buttonType);
+		this.props.getEditButtonState(buttonType, this.props.commentId);
 
 		if (buttonType === 'edit') {
 			let storageComments = JSON.parse(localStorage.getItem('comments'));
@@ -55,5 +55,6 @@ export default connect(
 	}),
 	dispatch => ({
 		getCommentsList: (item) => dispatch({ type: 'GET_COMMENTS', payload: item }),
+		getEditButtonState: (state, id) => dispatch({ type: 'GET_BUTTON_STATE', newState: state, currentId: id }),
 	})
 )(EditButton);

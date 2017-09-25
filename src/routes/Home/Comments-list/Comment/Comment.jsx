@@ -10,12 +10,7 @@ class Comment extends React.Component {
 	constructor(props) {
 	    super(props);
 
-	    this.state = {
-	    	editButtonState: 'edit'
-	    };
-
 	    this.displayedDate = this.displayedDate.bind(this);
-	    this.getEditButtonState = this.getEditButtonState.bind(this);
 	}
 
 	displayedDate() {
@@ -28,12 +23,6 @@ class Comment extends React.Component {
 		return displayedDate;
 	}
 
-	getEditButtonState(state) {
-		this.setState({
-			editButtonState: state
-		});
-	}
-
 	render() {
 	    return (
 	    	<div className="comment">
@@ -43,14 +32,10 @@ class Comment extends React.Component {
 	    		<p className="commentItem">phone: {this.props.phone}</p>
 	    		<p className="commentItem">comment: </p>
 	    		<CommentText
-	    			editButtonState={this.state.editButtonState}
 	    			commentId={this.props.id}
 	    			value={this.props.message}
 	    		/>
-	    		<EditButton
-	    			getEditButtonState={this.getEditButtonState}
-	    			commentId={this.props.id}
-	    		/>
+	    		<EditButton commentId={this.props.id} />
 	    	</div>
 	    );
 	}
